@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<?php
-	// This will make universal connection to database
-	$con=mysqli_connect("localhost","root","","mlogin");
-	session_start();
-?>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale:1.0,user-scaleabe=0"/>
 	<title> Minor Project </title>
 	<!--linking css file-->
 		<link rel="stylesheet" href="css/bootstrap.css" >
@@ -17,181 +11,133 @@
 		
 	<meta name="description" content=" The Project">
 	<style type="text/css">
-	body{
-		margin-top:90px;
-		padding:0px;
-		background-image: url("6.jpeg");
-	}
-	li {
-    -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px;
-}
-
-	.menu ul{
-		list-style:none;
+	*{
 		margin:0;
+		padding: 0;
+		box-sizing:border-box;
 	}
-	.menu ul li {
-		padding: 15px;
-		position: relative;
-		width:200px;
-		color: #fff;
-		background-color: #34495E;
-		border-top:1px solid #BDC3C7;
-		
+	body
+	{
+		font-family: "Georgia", serif;
 	}
-	.menu ul li:hover{
-		background-color:#3D0521;
-		border-top:1px solid #000;
-		padding-left:50px;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-		margin-top: 5px;
-		margin-bottom:5px;
-
-
-
+	div#header
+	{
+		background-color:#2c3e50;
+		width:100%;
+		height:50px;
+		margin:0 auto;
 	}
-	.menu ul li a:hover{
-		color:#8C95D4;
-		font-family:"Andale Mono",monospace;
-	}
-	.menu ul li a{
-		color: #fff;
-		text-decoration:none;
+	.logo{
+		color: white;
+		text-align: center;
+		font-size: 1.5em;
+		font-weight:300;
 
 	}
-	.menu ul li.selected{
-		background-color: #D8A7B4;
-		color:#000;
-		margin-left:15px;
-		margin-top:5px;
-		margin-bottom: 5px;
-		font-weight:bold;
-	}
+	div#container{
+		width:100%;
+		margin:0 auto;
 
-	i{
-		margin-right:15px;
 	}
-	.container{
-		margin-bottom:50px;
-		margin-top:0px;
+	.sidebar{
+		width:250px;
+		height:100%;
+		background-color: #171717;
+		float: left;
 	}
-	.row{
-		margin-top:10px;
+	.content{
+		width:auto;
+		margin-left:250px;
+		height:100%;
+		background-color: pink;
+		padding:15px;
 	}
-	.wrap-login{
-		margin:0px;
-		background-color:#F1E6E9;
-		border:solid 1px #d0d0d0;
-		-webkit-box-shadow: 20px 15px 14px 1px rgba(20,14,48,1);
-		-moz-box-shadow: 20px 15px 14px 1px rgba(20,14,48,1);
-		box-shadow: 20px 15px 14px 1px rgba(20,14,48,1);
-		border-radius: 30px 30px 30px 30px;
-		-moz-border-radius: 30px 30px 30px 30px;
-		-webkit-border-radius: 30px 30px 30px 30px;
-		border: 0px solid #000000;
+	.content p{
+		color: #424242;
+		font-size: 0.73em;
 
-}
-	.btn-login{
-		margin-left:auto;
-		margin-right:auto;
+	}
+	ul#nav{
+
+	}
+	ul#nav li{
+		list-style: none;
+	}
+	ul#nav li a{
+		color: #ccc;
 		display:block;
-		margin-bottom: 10px;
+		padding: 10px;
+		font-size: 0.9em;
+		font-style:italic;
+		font-weight:bolder;
+		border-bottom: 1px solid black;
+		-webkit-transition:0.2s;
+		-moz-transition:0.2s;
+		-o-transition:0.2s;
+		transition: 0.2s;
 	}
-	input[type=submit] {
-    padding:5px 15px; 
-    background:#008080;
-    color:white;
-    margin-left: 200px; 
-    border:3px solid #5D6D7E;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius:12px; 
-    text-transform:uppercase;
-    text-align:center;
-     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ul#nav li a:hover{
+	background-color: #030303;
+	color: #fff;
+	padding-left: 30px;
+
 }
-
+ul#nav li a.selected{
+	background-color: #030303;
+	color: #fff;
+	}
+	div#box{
+		margin-top: 15px;
+	}
+	div#box .box-top{
+		color: #fff;
+		text-shadow: 0px 1px #000;
+		background-color: #2980b9;
+		padding: 5px;
+		padding-left: 15px;
+		font-weight: 300;
+	}
+	div#box .box-panel{
+		padding:15px;
+		background-color: #fff;
+		color: #333;
+	}
 </style>
-</head>
 <body>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4">
-			<div class="menu">
-				<ul>
-					<a href="index.php"><li class="selected"><i class="fa fa-lock"></i>Login</li></a>
-					<a href="ho.php"><li><i class="fa fa-hospital-o"></i>Hospitals</li></a>
-					<a href="blood.php"><li><i class="fa fa-heartbeat"></i>Blood Bank</li></a>
-						
-					<a href=""><li><i class="fa fa-tint"></i>Blood group</li></a>
-						
-					<a href="don.php"><li><i class="fa fa-id-card"></i>Donation List</li></a>
-
-				</ul>	
-			</div>
+	<div id="header">
+		<div class="logo">
+			WELCOME!
 		</div>
-
-		<div class=" wrap-login col-md-6">
-		<h2 style="text-align: center;margin-top:20px;">Admin Login</h2>
-			<form method="post" action=""> 
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">Username</label>
-   					<input type="text" name="username" placeholder="Enter Username" required/>
-			  </div>
-			  <div class="form-group">
-			   <label for="exampleInputEmail2">Password</label>
-   					<input type="password" name="password" placeholder="Enter Password" required/>
-			  </div>
-			  <div class="checkbox">
-			    <label>
-			      <input type="checkbox"> Remember Me
-			    </label>
-			  </div>
-			  <input type="submit" name="login" value="login" />
-
-		
-	</form>
-			
-	<?php
-		if(isset($_POST['login']))
-		{
-			$username=$_POST['username'];
-			$password=$_POST['password'];
-			$q_login="select * from users where username='$username' AND password='$password'";
-			//echo $q_login;
-			$run_login=mysqli_query($con,$q_login);
-			$count_login=mysqli_num_rows($run_login);
-			if($count_login==0)
-			{
-				//here goes error
-				echo "<script>alert('Wrong email or password.')</script>";
-				exit(); //so that code of rest of page is not executed 
-			}
-			else
-			{
-				
-					//this will store log in session very imp
-					$_SESSION['username']=$username;
-					//showing message of login
-					echo "<script>alert('You logged in succesfully.')</script>";
-					//reload any other page that you want to load
-					echo "<script>window.open('hospital.php','_self')</script>";
-			}
-		}
-	?>
-
-
+	</div>
+	<div id="container">
+		<div class="sidebar">
+			<ul id="nav">
+				<li><a class="selected" href="index.php">Dashboard</a></li>
+				<li><a href="login.php">Admin Login</a></li>
+				<li><a href="reg.php">Registration Form </a></li>
+				<li><a href="ho.php">Hospital</a></li>
+				<li><a href="blood.php">Blood Bank</a></li>
+				<li><a href="donor.php">Donor List </a></li>
+				<li><a href="don.php">Donator List</a></li>
+			</ul>
 		</div>
-   </div>
-</div>
-	
-
-
-	<!--linking of js -->
-	<script src="js/jquery.js"</script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/npm.js"</script>
-
+		<div class="content">
+			<h1>NEWS UPDATES</h1>
+				<p>TOP STORIES</p>
+					<div id="box">
+							<div class="box-top">NEWS</div>
+							<div class="box-panel">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, ry of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</div>
+					</div>
+					<div id="box">
+							<div class="box-top">BLOOD DONATION CAMP</div>
+							<div class="box-panel">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,.  The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</div>
+					</div>
+					<div id="box">
+							<div class="box-top">REQUIRMENT OF BLOOD</div>
+							<div class="box-panel">Contrary to popular belief, Lorem Ipsum is not simply . The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</div>
+					</div>
+					
+		</div>
+	</div>
 </body>
 </html>
