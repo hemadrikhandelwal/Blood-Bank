@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2017 at 01:05 PM
+-- Generation Time: May 21, 2017 at 11:07 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -64,7 +64,8 @@ CREATE TABLE `donation` (
 
 INSERT INTO `donation` (`don_id`, `don_name`, `don_address`, `blood_bank_name`, `blood_bank_address`, `blood_amt`, `contact_detail`) VALUES
 (9, 'gfhjsdkm,', 'reduhstedgshx,mz', 'rfjdcsx', 'ywedhgsajK<', 111, 2147483647),
-(10, 'raja gupta', 'chjmxn ,QKDWJXLqkz', 'udacity', 'update new dat', 1234, 987654321);
+(10, 'raja gupta', 'chjmxn ,QKDWJXLqkz', 'udacity', 'update new dat', 1234, 987654321),
+(11, 'ycubscjhx', 'dnsudhj', 'tturjhfsmlwak', 'uycnhjmdzdolwdoi', 122, 987654321);
 
 -- --------------------------------------------------------
 
@@ -85,8 +86,44 @@ CREATE TABLE `hospital` (
 --
 
 INSERT INTO `hospital` (`hospital_id`, `hospital_name`, `hospital_address`, `blood_bank`, `contact_us`) VALUES
-(7, 'radha ranni hospital', 'fgydxcjn', 'tyuskjzx', 1234567890),
-(8, 'yusdhjznx,m', 'jai shree krishna apparment', 'jai shree mahakal', 1234567890);
+(7, 'radha ranni hospital', 'fgydxcjn', 'huiubkn', 1234567890),
+(8, 'cjhbgfshx', 'byrwedioujselmk', 'no', 987654321);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reg`
+--
+
+CREATE TABLE `reg` (
+  `r_id` int(200) NOT NULL,
+  `r_image` text NOT NULL,
+  `r_name` text NOT NULL,
+  `r_add` varchar(200) NOT NULL,
+  `r_gender` text NOT NULL,
+  `r_age` int(4) NOT NULL,
+  `r_bg` text NOT NULL,
+  `contact` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'himi', 'himi123');
 
 --
 -- Indexes for dumped tables
@@ -111,6 +148,18 @@ ALTER TABLE `hospital`
   ADD PRIMARY KEY (`hospital_id`);
 
 --
+-- Indexes for table `reg`
+--
+ALTER TABLE `reg`
+  ADD PRIMARY KEY (`r_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -123,12 +172,22 @@ ALTER TABLE `bb`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `don_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `don_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `hospital`
 --
 ALTER TABLE `hospital`
   MODIFY `hospital_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `reg`
+--
+ALTER TABLE `reg`
+  MODIFY `r_id` int(200) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
